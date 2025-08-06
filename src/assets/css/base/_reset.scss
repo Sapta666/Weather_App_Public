@@ -1,0 +1,12 @@
+@use "colors" as colors;
+@use "fonts" as fonts;
+
+* {
+    color: colors.$text-col;
+    font-family: fonts.$font-family;    
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}

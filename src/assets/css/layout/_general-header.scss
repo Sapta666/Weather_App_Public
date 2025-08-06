@@ -1,0 +1,46 @@
+@use "../base" as vars;
+
+.gen-header {
+    display: flex;    
+    justify-content: space-between;
+    margin: 0 5%;
+
+    &_weather-temp {
+       display: flex;
+    }
+
+    &_weather-type-text-con {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: vars.$font-size-header;
+        
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    &_weather-type-text {
+        display: block;
+        font-size: vars.$font-size-header-text;
+    }
+
+    &_weather-type-val {
+        font-weight: bold;
+        font-size: vars.$font-size-header-temp;
+    }
+
+    &_location {
+        padding-right: 20px;
+    }
+
+    &_location-text {
+        margin-top: 20px;
+        text-align: right;        
+    }
+
+    &_location-comment {
+        margin-top: 30px;
+        text-align: right;
+    }
+}

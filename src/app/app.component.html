@@ -1,0 +1,134 @@
+<div class="main-bg">
+    <div class="main-con">
+        <!-- general header -->
+        <div class="gen-header">
+            <!-- weather condition for today -->
+            <div class="gen-header_weather-temp">
+                <!-- weather icon -->
+                <img [src]="'assets/images/svg-icons/'+currentWeatherCode?.ImgSrc"
+                    class="img-primary">
+                <!-- weather text and temperature -->
+                <div class="gen-header_weather-type-text-con">
+                    <!-- weather condition text -->
+                    <div class="gen-header_weather-type-text">
+                        {{ currentWeatherCode?.Description }}
+                    </div>
+
+                    <!-- temperature -->                     
+                    <div class="gen-header_weather-type-val">
+                        {{ weatherInfo?.current?.temperature_2m }} 
+                        {{ weatherInfo?.current_units?.temperature_2m }}
+                    </div>
+                    
+                </div>            
+            </div>
+            <!-- location -->
+            <div class="gen-header_location">
+                <!-- location -->
+                <div class="gen-header_location-text">
+                    {{locationInfo?.results[0].components?.city}},
+                    {{locationInfo?.results[0].components?.state}},
+                    {{locationInfo?.results[0].components?.country}}
+                </div>
+                <!-- comment -->
+                <div class="gen-header_location-comment">
+                    Feels like {{ weatherInfo?.current?.apparent_temperature }} {{weatherInfo?.current_units?.apparent_temperature}}
+                </div>
+            </div>
+        </div>
+
+        <!-- weather card section -->
+         <div class="main-con_cards-con">
+            <div class="main-con_cards-left" id="left-card-con">
+                <!-- major tab card cnt -->
+                <app-major-tab-card-cnt
+                    [pWeatherInfo]="weatherInfo">                    
+                </app-major-tab-card-cnt>
+
+                <div class="mt-1">
+                    <!-- first row -->
+                    <div class="d-card-grid">
+                        <div class="d-card-grid_card-mini">
+                            <!-- mini disp card cnt -->
+                            <app-mini-disp-card-cnt
+                                [pHeading]="'Wind'"
+                                [pValue]="weatherInfo?.current?.wind_speed_10m"
+                                [pUOM]="weatherInfo?.current_units?.wind_speed_10m"
+                                [pValueMagnitude]="windSpeedType"
+                                [pValueMagType]="'direction'"
+                                [pSecondaryHeader]="'From'"
+                                [pSecondaryText]="windDirectionText"
+                                [pValueMagType_Value]="weatherInfo?.current?.wind_direction_10m">                            
+                            </app-mini-disp-card-cnt>
+                        </div>
+                        <div class="d-card-grid_card-mini">
+                            <!-- mini disp card cnt -->
+                            <app-mini-disp-card-cnt
+                                [pHeading]="'Humidity'"
+                                [pValue]="weatherInfo?.current?.relative_humidity_2m"
+                                [pUOM]="weatherInfo?.current_units?.relative_humidity_2m"
+                                [pValueMagnitude]="humidityLevelText"
+                                [pValueMagType]="'progress'"
+                                [pValueMagType_Value]="weatherInfo?.current?.relative_humidity_2m"
+                                [pSecondaryHeader]="'Dewpoint'"
+                                [pSecondaryText]="dewPointTemperture+weatherInfo?.current_units?.temperature_2m">                            
+                            </app-mini-disp-card-cnt>
+                        </div>
+                        <div class="d-card-grid_card-medium">
+                            <!-- air pollution card cnt -->
+                            <app-air-pollution-card-cnt
+                                [pPollution_Value]="airQualityInfo?.current?.us_aqi">                                
+                            </app-air-pollution-card-cnt>
+                        </div>
+                    </div>
+
+                    <!-- second row -->
+                    <div class="d-card-grid">
+                        <div class="d-card-grid_card-mini">
+                            <!-- mini disp card cnt -->
+                            <app-mini-disp-card-cnt
+                                [pHeading]="'Pressure'"
+                                [pValue]="weatherInfo?.current?.surface_pressure"
+                                [pValueMagnitude]="weatherInfo?.current_units?.surface_pressure"
+                                [pSecondaryHeader]="'High'"
+                                [pValueMagType]="'progress'"
+                                [pIsMagLabelNumeric]="false"
+                                [pMagType_ColorIndex]="2"
+                                [pValueMagType_Value]="(weatherInfo?.current?.surface_pressure/1080) * 100">                      
+                            </app-mini-disp-card-cnt>
+                        </div>
+                        <div class="d-card-grid_card-mini">
+                            <!-- mini disp card cnt -->
+                            <app-mini-disp-card-cnt
+                                [pHeading]="'UV Index'"
+                                [pValue]="uvIndex+''"
+                                [pValueMagnitude]="uvIndex_SeverityText"
+                                [pValueMagType]="'progress'"
+                                [pMagType_ColorIndex]="3"
+                                [pValueMagType_Value]="(uvIndex/11)*100">                             
+                            </app-mini-disp-card-cnt>
+                        </div>
+                        <div class="d-card-grid_card-medium">
+                            <!-- sunrise sunset card cnt -->
+                            <app-sunrise-sunset-card-cnt
+                                [pSunriseTime]="sunriseTime"
+                                [pSunsetTime]="sunsetTime"
+                                [pCurrent_Time]="currentDate">                                
+                            </app-sunrise-sunset-card-cnt>                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main-con_cards-right">
+                <div class="main-con_card-right-bg">
+                    <!-- next day weekly data card cnt -->
+                    <app-next-day-weekly-data-card-cnt
+                        [pWeather_Info]="weatherInfo"
+                        [pTotalHeight]="totalHeight">                        
+                    </app-next-day-weekly-data-card-cnt>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>

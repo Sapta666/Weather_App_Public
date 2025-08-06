@@ -1,0 +1,31 @@
+<div class="secondary-card">
+    <!-- heading -->
+    <div class="secondary-card_air-pollution-header">
+        Air Pollution
+        <div
+            class="pollution-info-parent" 
+            (mouseenter)="showHelperDialog = true" 
+            (mouseleave)="showHelperDialog = false">
+            <img src="assets/images/svg-icons/info.svg">
+            @if(showHelperDialog) {
+                <app-pollution-info-helper-cnt
+                    class="pollution-info-child">                    
+                </app-pollution-info-helper-cnt>
+            }
+        </div>
+    </div>
+    <div class="secondary-card_air-pollution-val-con">
+        <div class="secondary-card_air-pollution-val ms-3">
+            {{pollution_Value}}
+        </div>
+        <div class="ms-1">
+            {{pollution_State}}
+        </div>
+    </div>
+    <!-- range bar -->
+    <div class="secondary-card_air-pollution-range-bar mt-3">
+        <div class="secondary-card_air-pollution-range-bar-pointer"
+            [ngStyle]="{'left': (pollution_Value/3)+'%'}">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@use "sass:color";
+
+/* Colors */
+$color-background-main: rgb(136, 136, 136);
+
+$color-red: red;
+$color-map: (
+    "red": red,
+    "green": green,
+    "blue": blue,
+);
+
+@each $key, $value in $color-map {
+    .custom-text-col-#{$key} {
+        color: #{$value}
+    }
+
+    .bg-col-#{$key} {
+        background-color: #{$value}
+    }
+}
+
+
+@debug color.complement($color-red); 

@@ -1,0 +1,24 @@
+<div class="measure_disp_card">
+    <!-- header -->
+    <div class="measure_disp_card_text">
+        {{ pDataItem.Text }}
+    </div>
+    @if(pIsForWind) {
+        <div class="measure_disp_card_img-con">
+            <img 
+                src="assets/images/svg-icons/map-arrow-up.svg" 
+                class="measure_disp_card_img"
+                [ngStyle]="{'rotate': (pDataItem.Value_Num)+'deg'}">
+        </div>
+
+        <!-- footer text -->
+        <div class="measure_disp_card_text">
+        {{ pDataItem.Value }}
+        </div>
+    } @else {
+        <!-- large text -->
+        <div class="measure_disp_card_text-large">
+        {{ pDataItem.Value }}
+        </div>
+    }    
+</div>

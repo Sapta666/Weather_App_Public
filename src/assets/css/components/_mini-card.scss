@@ -1,0 +1,51 @@
+@use "../base" as base;
+
+.mini-card {
+    @include base.mini-card;
+
+    &_left-part {
+        flex-grow: 1;
+    }
+    &_value-con {
+        display: flex;
+        align-items: baseline;        
+    }
+    &_value {
+        font-size: base.$font-size-header;
+        font-weight: 500;
+    }
+    &_value-emphasis {
+        font-weight: 600;
+    }
+    &_direction-img {
+        height: 50px;
+        width: 50px;
+        display: block;
+    }
+
+    &_right-part {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &_slider-fixed {
+        width: 25px;
+        height: 95px;
+        border-radius: 15px;
+        margin-top: 2px;
+        margin-bottom: 3px;
+        background-color: #62b3ff9c;
+        position: relative;
+    }
+    &_slider-pointer {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: rgb(98, 179, 255);
+        opacity: 1;
+        z-index: 2;
+    }
+
+} 

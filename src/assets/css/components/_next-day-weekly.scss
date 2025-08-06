@@ -1,0 +1,39 @@
+@use "../base/" as base;
+
+.next-day-weekly {
+    padding: 5px;
+
+    &_tabs {
+        text-align: center;
+        margin: auto;
+    }
+
+    &_cards-con {
+        overflow-y: auto;
+        scrollbar-width: none;
+        padding: 2px;
+        margin-top: 5px;        
+    }
+
+    &_cards-con &_card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        background-color: base.$card-next-day-weekly-bg-col;
+        
+        border-radius: base.$border-radius;
+        padding: 5px;
+        margin-bottom: 5px;        
+    }
+
+    &_card img {
+        width: 25px;
+        aspect-ratio: 1/1;
+    }    
+
+    &_card &_card-temp-min {
+        font-size: base.$font-size-text-small;
+        color: base.$text-col-sub-title;
+    }
+}

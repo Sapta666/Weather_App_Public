@@ -1,0 +1,52 @@
+@use "../base" as base;
+
+.secondary-card {
+    @include base.mini-card;
+    display: block;
+
+    &_air-pollution-header {
+        display: flex;
+        justify-content: space-between;        
+
+        img {
+            height: 20px;
+            aspect-ratio: 1/1;
+        }
+        img:hover {
+            cursor: help;
+        }
+    }
+
+    &_air-pollution-val-con {
+        display: flex;
+        align-items: baseline;
+        margin-top: 57px;
+    }
+
+    &_air-pollution-val {
+        font-weight: 500;
+        font-size: base.$font-size-header-2;
+    }
+
+    &_air-pollution-range-bar {        
+        height: 10px;
+        width: 100%;
+        border-radius: 25px;
+        background-image: linear-gradient(to right, base.$air-pollution-col-good , base.$air-pollution-col-moderate, base.$air-pollution-col-unhealthy-sg,
+            base.$air-pollution-col-unhealthy, base.$air-pollution-col-very-unhealthy 33.33%,base.$air-pollution-col-hazardous);
+        position: relative;
+    }            
+    
+    &_air-pollution-range-bar &_air-pollution-range-bar-pointer {
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        border: 2px solid base.$border-col-one;
+        border-radius: 50%;
+        background-color: base.$col-white;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+
+} 

@@ -1,0 +1,47 @@
+@use "../base" as base;
+
+.pos-center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-bg {
+    background-image: url(../../images/main-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.main-con {
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: base.$border-radius;    
+    background: linear-gradient(to bottom right, base.$gradient-one,base.$gradient-two);
+    padding: 20px;
+
+    &_cards-con {
+        display: flex;
+        align-items: stretch;
+    }
+    &_cards-left {
+        width: 75%;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    &_cards-right {
+        width: 25%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding-left: 5px;
+        padding-bottom: 4px;
+    }
+    &_card-right-bg {
+        background: base.$card-bg-col;
+        border-radius: base.$border-radius;
+        height: 100%;
+    }    
+}

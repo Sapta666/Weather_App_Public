@@ -1,0 +1,24 @@
+@use "../base" as base;
+@use 'sass:color';
+
+.major-tab-card {
+    background: linear-gradient(to bottom right,darken(base.$gradient-one, base.$darken-per),darken(base.$gradient-two,base.$darken-per));
+    
+    padding: 10px;
+    border-radius: base.$border-radius;
+
+    &_disp-text {        
+        margin: 10px 20px;
+    }
+    &_sub-heading {
+        margin-bottom: 5px;
+    }
+    &_value {
+        display: inline-block;
+        font-size: base.$font-size-header;
+    }
+    &_uom {
+        display: inline-block;
+        margin-left: 5px;
+    }
+}

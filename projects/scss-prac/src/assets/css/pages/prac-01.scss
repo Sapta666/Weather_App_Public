@@ -1,0 +1,44 @@
+@use "../imports" as vars;
+
+
+.prac-01 {
+    .header-con {
+        text-align: center;
+    
+        &__text-main {
+            display: inline-block;
+            font-size: vars.$fs-3;
+            font-weight: bold;
+        }
+    }    
+
+    .btn-con {
+        padding: 5px;
+        font-size: 35px;
+
+        .btn-main {
+            border-width: 0;
+            box-shadow: none;
+            margin: 0 5px;            
+            --cl-one: blue;
+            background-color: var(--cl-one);
+        }
+
+        .btn-second {
+            border-width: 0;
+            box-shadow: none;
+            margin: 0 5px;            
+            background-color: var(--cl-one);
+        }
+        
+    }
+
+    .h1-test {
+        font-size: percentage($number: 5);
+    }
+    
+}
+// .btn-red { @extend .btn-con; background-color: red;}
+.btn-green { background-color: green; }
+.btn-blue { background-color: blue; }
+

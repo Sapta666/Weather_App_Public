@@ -1,0 +1,36 @@
+@use "../base" as base;
+
+.measure_disp_card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-right: 3px;
+    padding: 5px 0;
+
+    border-radius: base.$border-radius;
+    background: rgba(231, 231, 231, 0.2);
+    
+    height: 100px;
+    width: 100px;
+
+    &_text {
+        text-align: center;
+    }
+    &_text-large {
+        text-align: center;
+        font-size: base.$font-size-header;
+        
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    &_img-con {
+        text-align: center;
+    }
+    &_img {
+        height: 50px;
+        width: 50px;
+    }
+}

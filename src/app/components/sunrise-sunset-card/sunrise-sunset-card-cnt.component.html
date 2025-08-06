@@ -1,0 +1,51 @@
+<div class="sunrise-sunset">
+    <div>
+        Sunrise Sunset
+    </div>
+    <div class="mt-3 sunrise-sunset_time-diagram">
+        <!-- sunrise & sunset time -->
+        <div>
+            <!-- sunrise -->
+            <div class="sunrise-sunset_sub-title mb-1">
+                Sunrise
+            </div>
+            <div class="sunrise-sunset_time mb-3">
+                {{pSunriseTime}}
+            </div>
+
+            <!-- sunset -->
+            <div class="sunrise-sunset_sub-title mb-1">
+                Sunset            
+            </div>
+            <div class="sunrise-sunset_time ">
+                {{pSunsetTime}}
+            </div> 
+        </div>
+        <!-- diagram -->
+        <div class="sunrise-sunset_diagram-con">
+            <div class="sunrise-sunset_diagram-main-ref">
+                <div class="sunrise-sunset_diagram-circle-con">
+                    <div class="sunrise-sunset_diagram-circle">                        
+                    </div>
+                    <div class="sunrise-sunset_diagram-pointer-con" [ngStyle]="{'rotate': time_to_degrees+'deg'}">
+                        @if(time_to_degrees > 0 && time_to_degrees < 180) {
+                            <img src="assets/images/svg-icons/clear-day.svg">
+                        } @else {                            
+                            <div class="sunrise-sunset_diagram-pointer">
+                            </div>
+                        }
+                    </div>
+                </div>                
+                <div class="sunrise-sunset_time-text">
+                    {{timeDisp}}
+                </div>                    
+                <div class="sunrise-sunset_horizon-text">
+                    Horizon
+                </div>
+                 <div class="sunrise-sunset_night-text">
+                    Night
+                </div>                     
+            </div>            
+        </div>
+    </div>
+</div>

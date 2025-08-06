@@ -1,0 +1,17 @@
+.d-card-grid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4,1fr);
+    
+    &_card-mini {
+        grid-row: span 1;
+        grid-column: span 1;
+        padding: 5px;
+    }
+
+    &_card-medium {
+        grid-row: span 2;
+        grid-column: span 2;
+        padding: 5px;
+    }
+}

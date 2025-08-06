@@ -1,0 +1,13 @@
+@use "../base" as vars;
+
+.mat-button-toggle-appearance-standard {
+    background-color: vars.$btn-col !important;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+    background-color: vars.$btn-col-active !important;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 24px !important;
+}

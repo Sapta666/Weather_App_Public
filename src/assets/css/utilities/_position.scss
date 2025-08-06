@@ -1,0 +1,15 @@
+.float-start {
+    float: left;
+}
+
+.scrol-x {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        width: 50%;
+        background-color: none;
+    }
+
+}

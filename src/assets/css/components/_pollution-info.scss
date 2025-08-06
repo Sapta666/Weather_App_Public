@@ -1,0 +1,54 @@
+@use "../base" as base;
+
+.pollution-info-parent {
+    position: relative;
+}
+
+.pollution-info-child {
+    position: absolute;
+    bottom: -600%;
+    right: calc(100% + 5px);
+    z-index: 3;
+
+    &_container {
+        padding: 5px;
+        border: 2px solid base.$border-col-one;
+        border-radius: base.$border-radius;
+        background-color: base.$card-pollution-info-bg-col;  
+        
+        width: 50vw;
+    }
+
+    &_main-header, &_main-row {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr 4fr 4fr;
+        padding: 5px;
+
+        div {
+           border-right: 2px solid base.$col-black; 
+        }
+
+        div:last-child {
+            border-right: none;
+        }
+    }
+
+    &_main-row {
+        &--good div { background-color: base.$air-pollution-col-good; }
+        &--moderate div { background-color: base.$air-pollution-col-moderate; color: base.$col-black; }
+        &--unhealthy-sg div { background-color: base.$air-pollution-col-unhealthy-sg; color: base.$col-black;}
+        &--unhealthy div { background-color: base.$air-pollution-col-unhealthy; }
+        &--very-unhealthy div { background-color: base.$air-pollution-col-very-unhealthy; }
+        &--hazardous div { background-color: base.$air-pollution-col-hazardous; }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+    }
+
+    
+}

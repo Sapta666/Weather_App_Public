@@ -1,0 +1,56 @@
+<div class="major-tab-card">
+    <!-- tabs -->
+    <mat-button-toggle-group
+        [hideSingleSelectionIndicator]="true"
+        (change)="onDisplayTypeChange($event)">
+        <mat-button-toggle value="hourly" [checked]="true">Hourly</mat-button-toggle>
+        <mat-button-toggle value="wind">Wind</mat-button-toggle>
+        <mat-button-toggle value="precipitation">Precipitation</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <!-- tab disp text -->
+    <div class="major-tab-card_disp-text">
+        <div class="major-tab-card_sub-heading">
+           @if(selectedBtn == 'hourly') {
+                Day Max
+            } @else {
+                Day High
+            } 
+        </div>
+        <div class="major-tab-card_value">
+            @if(selectedBtn == 'hourly') {
+                {{weatherInfo?.daily?.temperature_2m_max[0]}} {{weatherInfo?.daily_units?.temperature_2m_max[0]}}
+            } @else if(selectedBtn == 'wind') {
+                {{weatherInfo?.current?.wind_speed_10m}}
+            } @else if(selectedBtn == 'precipitation') {
+                {{ maxPrecipitation }}
+            }
+        </div>
+        <div class="major-tab-card_uom">
+             @if(selectedBtn == 'hourly') {
+                
+            } @else if(selectedBtn == 'wind') {
+                {{weatherInfo?.current_units?.wind_speed_10m}}
+            } @else if(selectedBtn == 'precipitation') {
+                {{weatherInfo?.hourly_units?.precipitation}}
+            }
+        </div>
+    </div>
+
+    <div class="scrol-x" 
+        id="major-display-con"
+        (mousemove)="onMouseMove($event)"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+        (mousedown)="onMouseDown()"
+        (mouseup)="onMouseUp()">
+        @for(dataItem of displayData; track dataItem) {
+            <!-- map arrow card cnt -->
+            <app-measure-disp-card-cnt
+                [pDataItem]="dataItem"
+                [pIsForWind]="selectedBtn == 'wind'">            
+            </app-measure-disp-card-cnt>
+        }
+    </div>
+
+</div>

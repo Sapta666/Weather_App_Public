@@ -1,0 +1,42 @@
+<div class="next-day-weekly">
+    <!-- tabs -->
+    <div class="next-day-weekly_tabs">
+        <mat-button-toggle-group
+            [hideSingleSelectionIndicator]="true"            
+            (change)="onDisplayTypeChange($event)">
+            <mat-button-toggle value="tomorrow" [checked]="true">Tomorrow</mat-button-toggle>
+            <mat-button-toggle value="weekly">Weekly</mat-button-toggle>
+        </mat-button-toggle-group>    
+    </div>
+
+    <div class="next-day-weekly_cards-con" 
+        [ngStyle]="{'height.px': pTotalHeight }"
+        id="card-display-con"
+        (mousemove)="onMouseMove($event)"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+        (mousedown)="onMouseDown()"
+        (mouseup)="onMouseUp()">
+
+        @for(dataItem of displayData; track dataItem) {
+
+            <div class="next-day-weekly_card">
+                <div class="ms-3">
+                    {{dataItem.Text}}
+                </div>
+                <img [src]="'assets/images/svg-icons/'+dataItem.WeatherImgSrc">
+                <div class="me-3">
+                    {{dataItem.Value_Max}}&deg;
+                    <br>
+                    @if(selectedBtn == 'weekly') {
+                        <span class="next-day-weekly_card-temp-min">
+                            {{dataItem.Value_Min}}&deg;
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="mini-card">
+    <!-- left side -->
+    <div class="mini-card_left-part">
+        <div class="mb-3">
+            {{pHeading}}
+        </div>
+        <div class="mini-card_value-con">
+            <span class="mini-card_value">
+                {{pValue}}
+            </span>
+            <span class="ms-2">
+                {{pUOM}}
+            </span>
+        </div>
+        <div class="mini-card_value-emphasis mt-1 mb-3">
+            {{pValueMagnitude}}
+        </div>
+        <div>
+            {{pSecondaryHeader}}
+        </div>
+        <div class="mini-card_value-emphasis">
+            {{pSecondaryText}}
+        </div>
+    </div>
+    <!-- right side -->
+    <div class="mini-card_right-part">
+        @if(pValueMagType == "direction") {
+            <div class="text-center">
+                N
+                <img src="assets/images/svg-icons/map-arrow-up.svg" 
+                    class="mini-card_direction-img"
+                    [ngStyle]="{'rotate': pValueMagType_Value+'deg'}">
+            </div>
+        } @else if(pValueMagType == "progress") {
+            <div class="text-center">
+                @if(pIsMagLabelNumeric) {
+                    100
+                } @else {
+                    High
+                }
+                <div class="mini-card_slider-fixed" 
+                    [ngStyle]="{'background-color': ''+magTypeColor[pMagType_ColorIndex - 1]}">
+                    <div class="mini-card_slider-pointer"
+                        style="opacity: 1;"
+                        [ngStyle]="{
+                            'background-color': ''+magTypeColor_Pointer[pMagType_ColorIndex - 1],
+                            'top': (70 * (1 - pValueMagType_Value/100) + 'px')
+                        }"> 
+                    </div>
+                </div>
+               @if(pIsMagLabelNumeric) {
+                    0
+                } @else {
+                    Low
+                }
+            </div>
+        }
+    </div>
+</div>

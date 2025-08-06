@@ -1,0 +1,96 @@
+@use "../base" as base;
+
+.sunrise-sunset {
+    @include base.mini-card;
+    display: block;
+
+    &_time-diagram {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_sub-title {
+        color: base.$text-col-sub-title;
+    }
+
+    &_time {
+        font-size: base.$font-size-header;
+        font-weight: 500;
+    }    
+
+    &_diagram-con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    &_diagram-main-ref {
+        height: 2px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='"+base.$border-col-one+"' stroke-width='5' stroke-dasharray='15%2c15' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+        width: 75%;
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    &_diagram-main-ref &_diagram-circle-con {
+        position: absolute;
+        left: 10%;
+        transform: translateY(-50%);
+        margin-bottom: 15px;
+    }
+
+    &_diagram-circle-con &_diagram-circle {
+        height: 100px;
+        width: 100px;
+        border: 2px solid base.$border-col-one;
+        border-radius: 50%;
+        
+        border-bottom-style: dashed;
+        border-left-style: dashed;
+        rotate: -45deg;
+        position: relative;
+    }
+
+    &_diagram-circle-con &_diagram-pointer-con {
+        position: absolute;        
+        top: 50%;         
+        height: 1px;
+        width: 100px;
+    }
+
+    &_diagram-pointer-con &_diagram-pointer {
+        height: 15px;
+        width: 15px;
+        background-color: base.$col-white;
+        border-radius: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    &_diagram-pointer-con img {
+        height: 15px;
+        width: 15px;
+        transform: translate(-50%,-50%);        
+        filter: brightness(0) saturate(100%) invert(78%) sepia(65%) saturate(1153%) hue-rotate(355deg) brightness(98%) contrast(108%);
+    }
+
+    &_diagram-main-ref &_night-text {
+        position: absolute;
+        bottom: calc(-50px - 1rem - 5px);
+        left: calc(10% + 50px);
+        transform: translateX(-50%);
+    }
+
+    &_diagram-main-ref &_time-text {
+        position: absolute;
+        top: 5px;
+        left: calc(10% + 50px);
+        transform: translateX(-50%);
+    }
+
+    &_diagram-main-ref &_horizon-text {
+        position: absolute;
+        right: 5px;
+        top: calc(-1rem - 5px);
+    }
+}
